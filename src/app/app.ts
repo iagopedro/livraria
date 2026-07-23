@@ -8,5 +8,8 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('livraria');
+  public name: string = 'Iago';
+  protected readonly title = signal(this.name);
 }
+
+// TypeScript adiciona comportamento ao JavaScript

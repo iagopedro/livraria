@@ -1,0 +1,28 @@
+.livro-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 320px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #fff;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.livro-capa {
+  font-size: 48px;
+}
+
+.livro-titulo {
+  font-size: 18px;
+  margin: 0 0 8px 0;
+  color: #333;
+}
+
+.livro-autor,
+.livro-ano {
+  font-size: 14px;
+  margin: 4px 0;
+  color: #666;
+}
