@@ -1,10 +1,14 @@
 <div class="livro-card">
   <div class="livro-capa">📖</div>
   <div class="livro-info">
-    <h2 class="livro-titulo">{{ titulo }}</h2>
-    <p class="livro-autor">Autor: {{ autor }}</p>
-    <p class="livro-ano">Publicado em: {{ anoPublicacao }}</p>
+    <h2 class="livro-titulo">{{ getTitulo() }}</h2>
+    <p class="livro-autor">Autor: {{ getAutor() }}</p>
+    <p class="livro-ano">Publicado em: {{ getAnoPublicacao() }}</p>
   </div>
 
   <!-- TODO: Adicionar botões para alterar título, autor e ano de publicação -->
+
+  <button (click)="alterarTitulo()">Alterar título</button>
+  <button (click)="alterarAutor()">Alterar autor</button>
+  <button (click)="alterarAnoPublicacao()">Alterar ano de publicação</button>
 </div>
