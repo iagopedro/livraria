@@ -1,0 +1,43 @@
+.livro-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px 24px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.livro-card h2 {
+  font-size: 1.1rem;
+  color: #3b2f2f;
+  margin: 0 0 6px 0;
+}
+
+.livro-card p {
+  font-size: 0.9rem;
+  color: #7a6a5a;
+  margin: 0;
+}
+
+.livro-acoes {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.livro-acoes button {
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  border: 1px solid #a0785a;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #7b4f2e;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.livro-acoes button:hover {
+  background-color: #7b4f2e;
+  color: #fff;
+}

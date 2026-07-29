@@ -1,0 +1,13 @@
+<div class="livro-card">
+  <h2>{{ livro.titulo }}</h2>
+  <p>Autor: {{ livro.autor }}</p>
+  <p>Publicado em: {{ livro.anoPublicacao }}</p>
+
+  @if (mostrarBotoes) {
+    <div class="livro-acoes">
+      <button (click)="alterarTitulo()">Alterar título</button>
+      <button (click)="alterarAutor()">Alterar autor</button>
+      <button (click)="alterarAnoPublicacao()">Alterar ano</button>
+    </div>
+  }
+</div>

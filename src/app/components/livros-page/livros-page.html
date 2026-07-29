@@ -1,0 +1,15 @@
+<div class="pagina-livros">
+  <h1 class="pagina-titulo">📚 Biblioteca</h1>
+
+  <ul class="lista-livros">
+    @for (livro of livros; track livro) {
+      <li
+        class="livro-item"
+        [class.selecionado]="selecionadoIndex === $index"
+        (click)="selecionar($index)"
+      >
+        <app-livro [livro]="livro" [mostrarBotoes]="selecionadoIndex === $index" />
+      </li>
+    }
+  </ul>
+</div>

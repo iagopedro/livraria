@@ -1,0 +1,41 @@
+.pagina-livros {
+  min-height: 100vh;
+  background-color: #f4f1eb;
+  padding: 48px 24px;
+  font-family: 'Georgia', serif;
+}
+
+.pagina-titulo {
+  text-align: center;
+  font-size: 2rem;
+  color: #3b2f2f;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+
+.lista-livros {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.livro-item {
+  cursor: pointer;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.livro-item:hover {
+  border-color: #a0785a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.livro-item.selecionado {
+  border-color: #7b4f2e;
+  box-shadow: 0 6px 20px rgba(123, 79, 46, 0.2);
+}
