@@ -11,9 +11,9 @@ import { LivroModel } from '../models/livro.model';
 export class LivrosPage {
 
   livros: LivroModel[] = [
-    new LivroModel('O Senhor dos Anéis', 'J.R.R. Tolkien', 1954),
-    new LivroModel('1984', 'George Orwell', 1949),
-    new LivroModel('O Pequeno Príncipe', 'Antoine de Saint-Exupéry', 1943),
+    new LivroModel(1, 'O Senhor dos Anéis', 'J.R.R. Tolkien', 1954),
+    new LivroModel(2, '1984', 'George Orwell', 1949),
+    new LivroModel(3, 'O Pequeno Príncipe', 'Antoine de Saint-Exupéry', 1943),
   ];
 
   selecionadoIndex: number | null = null;

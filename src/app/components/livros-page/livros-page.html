@@ -8,7 +8,10 @@
         [class.selecionado]="selecionadoIndex === $index"
         (click)="selecionar($index)"
       >
-        <app-livro [livro]="livro" [mostrarBotoes]="selecionadoIndex === $index" />
+        <app-livro 
+          [livro]="livro" 
+          [mostrarBotoes]="selecionadoIndex === $index" 
+        />
       </li>
     }
   </ul>

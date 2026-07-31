@@ -1,9 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { LivroModel } from '../models/livro.model';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-livro',
-  imports: [],
+  imports: [
+    RouterLink
+  ],
   templateUrl: './livro.html',
   styleUrl: './livro.css',
 })
@@ -14,10 +17,16 @@ export class Livro {
 
   alterarTitulo(): void {
     const novoTitulo = prompt("Digite o novo título:");
-    if (!novoTitulo) { 
+
+    if (novoTitulo === null) {
+      return;
+    }
+
+    if (novoTitulo.trim() === '') { 
       alert("Título não pode ser vazio!");
       return; 
     }
+
     this.livro.titulo = novoTitulo;
   }
 

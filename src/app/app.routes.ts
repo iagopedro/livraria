@@ -1,17 +1,23 @@
 import { Routes } from '@angular/router';
 import { LivrosPage } from './components/livros-page/livros-page';
+import { LivroDetalhesPage } from './components/livro-detalhes-page/livro-detalhes-page';
 
 export const routes: Routes = [
-  // Rota para livro
+  // Rota para livros
   {
-    path: 'livro',
+    path: 'livros',
     component: LivrosPage
   }
 ,
   // Rota para página inicial
   {
     path: '',
-    redirectTo: '/livro',
+    redirectTo: '/livros',
     pathMatch: 'full'
+  }
+,
+  {
+    path: 'livros/:id',
+    component: LivroDetalhesPage
   }
 ];

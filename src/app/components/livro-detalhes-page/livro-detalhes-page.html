@@ -1,0 +1,13 @@
+<div class="detalhes-container">
+  @if (livro) {
+    <h1>Detalhes do Livro</h1>
+    <h2>{{ livro.titulo }}</h2>
+    <p><strong>Autor:</strong> {{ livro.autor }}</p>
+    <p><strong>Ano de publicação:</strong> {{ livro.anoPublicacao }}</p>
+  } @else {
+    <h1>Livro não encontrado</h1>
+    <p>O livro solicitado não existe.</p>
+  }
+
+  <button routerLink="/livros">Voltar para lista</button>
+</div>
