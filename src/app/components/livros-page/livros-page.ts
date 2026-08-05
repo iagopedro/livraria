@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Livro } from '../livro/livro';
 import { LivroModel } from '../models/livro.model';
+import { LivroService } from '../../services/livro-service';
 
 @Component({
   selector: 'app-livros-page',
@@ -9,12 +10,22 @@ import { LivroModel } from '../models/livro.model';
   styleUrl: './livros-page.css',
 })
 export class LivrosPage {
+  livros?: LivroModel[];
 
-  livros: LivroModel[] = [
-    new LivroModel(1, 'O Senhor dos Anéis', 'J.R.R. Tolkien', 1954),
-    new LivroModel(2, '1984', 'George Orwell', 1949),
-    new LivroModel(3, 'O Pequeno Príncipe', 'Antoine de Saint-Exupéry', 1943),
-  ];
+  // Lista virá do Service via injeção de dependências
+  constructor(private livroService: LivroService) { }
+
+  // Um dos métodos disponíveis de ciclo de vida
+  ngOnInit() {
+    // Carrega a lista de livros no momento da inicialização do componente
+    this.livros = this.livroService.getLivros();
+  }
+
+  // Exemplo de outro método de ciclo de vida:
+
+  // ngOnDestroy() {
+  //   console.log("Componente excluído!", Date.now())
+  // }
 
   selecionadoIndex: number | null = null;
 
@@ -28,5 +39,10 @@ export class LivrosPage {
     // } else {
     //   this.selecionadoIndex = index;
     // }
+  }
+
+  cadastrarLivro() {
+    // Delegar criação de livro para o Service
+    this.livroService.cadastrarLivro();
   }
 }

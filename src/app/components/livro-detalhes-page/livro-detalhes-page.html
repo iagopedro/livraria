@@ -1,13 +1,35 @@
-<div class="detalhes-container">
+<div class="pagina-detalhes">
   @if (livro) {
-    <h1>Detalhes do Livro</h1>
-    <h2>{{ livro.titulo }}</h2>
-    <p><strong>Autor:</strong> {{ livro.autor }}</p>
-    <p><strong>Ano de publicação:</strong> {{ livro.anoPublicacao }}</p>
-  } @else {
-    <h1>Livro não encontrado</h1>
-    <p>O livro solicitado não existe.</p>
-  }
+    <div class="detalhes-container">
+      <div class="detalhes-header">
+        <h1 class="detalhes-titulo">📖 Detalhes do Livro</h1>
+      </div>
 
-  <button routerLink="/livros">Voltar para lista</button>
+      <div class="detalhes-conteudo">
+        <div class="livro-secao">
+          <h2 class="livro-titulo">{{ livro.titulo }}</h2>
+          <p class="livro-autor">
+            <span class="label">Autor:</span>
+            <span class="valor">{{ livro.autor }}</span>
+          </p>
+          <p class="livro-ano">
+            <span class="label">Ano de publicação:</span>
+            <span class="valor">{{ livro.anoPublicacao }}</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="detalhes-acoes">
+        <button class="btn-voltar" routerLink="/livros">← Voltar para lista</button>
+      </div>
+    </div>
+  } @else {
+    <div class="detalhes-container">
+      <div class="mensagem-erro">
+        <h1 class="erro-titulo">⚠️ Livro não encontrado</h1>
+        <p class="erro-descricao">O livro solicitado não existe ou foi removido.</p>
+        <button class="btn-voltar" routerLink="/livros">← Voltar para lista</button>
+      </div>
+    </div>
+  }
 </div>

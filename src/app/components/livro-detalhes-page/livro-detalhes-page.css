@@ -1,11 +1,136 @@
-.detalhes-container {
-  max-width: 640px;
-  margin: 24px auto;
-  padding: 16px;
-  border-radius: 8px;
-  background: #f5f5f5;
+.pagina-detalhes {
+  min-height: 100vh;
+  background-color: #f4f1eb;
+  padding: 48px 24px;
+  font-family: 'Georgia', serif;
 }
 
-button {
-  margin-top: 16px;
+.detalhes-container {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.detalhes-header {
+  background: linear-gradient(135deg, #7b4f2e 0%, #a0785a 100%);
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.detalhes-titulo {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.detalhes-conteudo {
+  padding: 32px 24px;
+}
+
+.livro-secao {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.livro-titulo {
+  font-size: 1.6rem;
+  color: #3b2f2f;
+  margin: 0;
+  border-bottom: 3px solid #7b4f2e;
+  padding-bottom: 12px;
+  line-height: 1.4;
+}
+
+.livro-autor,
+.livro-ano {
+  display: flex;
+  gap: 12px;
+  font-size: 1.1rem;
+  color: #3b2f2f;
+  margin: 0;
+  padding: 12px 0;
+  border-bottom: 1px solid #e8e3db;
+}
+
+.livro-ano {
+  border-bottom: none;
+}
+
+.label {
+  font-weight: 600;
+  color: #7b4f2e;
+  min-width: 150px;
+}
+
+.valor {
+  color: #5a4d47;
+  font-style: italic;
+}
+
+.detalhes-acoes {
+  padding: 24px;
+  background-color: #f9f7f3;
+  text-align: center;
+  border-top: 1px solid #e8e3db;
+}
+
+.mensagem-erro {
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.erro-titulo {
+  font-size: 1.6rem;
+  color: #7b4f2e;
+  margin-bottom: 16px;
+}
+
+.erro-descricao {
+  font-size: 1.1rem;
+  color: #5a4d47;
+  margin-bottom: 32px;
+}
+
+.btn-voltar {
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-family: 'Georgia', serif;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #7b4f2e 0%, #a0785a 100%);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(123, 79, 46, 0.2);
+}
+
+.btn-voltar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(123, 79, 46, 0.3);
+  background: linear-gradient(135deg, #a0785a 0%, #7b4f2e 100%);
+}
+
+.btn-voltar:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(123, 79, 46, 0.2);
 }

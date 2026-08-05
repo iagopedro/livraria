@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { LivroModel } from '../models/livro.model';
-import { LivroService } from '../../livro-service';
+import { LivroService } from '../../services/livro-service';
 
 @Component({
   selector: 'app-livro-detalhes-page',
