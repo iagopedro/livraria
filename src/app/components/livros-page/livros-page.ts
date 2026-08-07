@@ -17,15 +17,26 @@ export class LivrosPage {
 
   // Um dos métodos disponíveis de ciclo de vida
   ngOnInit() {
-    // Carrega a lista de livros no momento da inicialização do componente
-    this.livros = this.livroService.getLivros();
+    this.carregarLivros();
   }
-
   // Exemplo de outro método de ciclo de vida:
 
   // ngOnDestroy() {
   //   console.log("Componente excluído!", Date.now())
   // }
+
+  // Função criada para carregar livros, evitando repetição de código
+  carregarLivros() {
+    // Dados que vem do Local Storage são do tipo STRING
+    const dados = localStorage.getItem("lista_livros")
+
+    if(!dados) {
+      this.livros = this.livroService.getLivros();
+    } else {
+      this.livros = JSON.parse(dados);
+    }
+  }
+
 
   selecionadoIndex: number | null = null;
 
@@ -44,5 +55,9 @@ export class LivrosPage {
   cadastrarLivro() {
     // Delegar criação de livro para o Service
     this.livroService.cadastrarLivro();
+
+    // BUG visto em aula: necessário atualizar a lista do componente
+    // ao cadastrar um novo livro
+    this.carregarLivros();
   }
 }

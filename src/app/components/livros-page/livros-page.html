@@ -1,7 +1,7 @@
 <div class="pagina-livros">
   <h1 class="pagina-titulo">📚 Biblioteca</h1>
 
-  <button (click)="cadastrarLivro()">Cadastrar livro</button>
+  <button (click)="cadastrarLivro()">+ Cadastrar livro</button>
 
   <ul class="lista-livros">
     @for (livro of livros; track livro) {
@@ -13,6 +13,7 @@
         <app-livro 
           [livro]="livro" 
           [mostrarBotoes]="selecionadoIndex === $index" 
+          (livroExcluido)="carregarLivros()"
         />
       </li>
     }

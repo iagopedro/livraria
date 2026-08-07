@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { LivroModel } from '../models/livro.model';
 import { RouterLink } from '@angular/router';
+import { LivroService } from '../../services/livro-service';
 
 @Component({
   selector: 'app-livro',
@@ -12,8 +13,14 @@ import { RouterLink } from '@angular/router';
 })
 export class Livro {
 
+  constructor(private livroService: LivroService) {}
+
   @Input() livro!: LivroModel;
   @Input() mostrarBotoes: boolean = false;
+
+  // Dispara um evento para o componente pai, 
+  // avisando da exclusão de um livro
+  @Output() livroExcluido = new EventEmitter<number>();
 
   alterarTitulo(): void {
     const novoTitulo = prompt("Digite o novo título:");
@@ -51,5 +58,16 @@ export class Livro {
       return; 
     }
     this.livro.anoPublicacao = valor;
+  }
+
+  excluirLivro(livroId: number) {
+    const confirmacaoUsuario = confirm("Deseja realmente excluir o livro?");
+    
+    if (confirmacaoUsuario) {
+      this.livroService.excluirLivro(livroId);
+      alert("Livro excluído com sucesso!");
+      // Avisa o componente pai para recarregar a lista
+      this.livroExcluido.emit(livroId);
+    }
   }
 }

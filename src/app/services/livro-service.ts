@@ -37,6 +37,13 @@ export class LivroService {
     }
 
     const autor = prompt("Digite o autor do novo livro:")
+    // Lógica inversa (negação): queremos verificar se o autor
+    // é um número. Caso sim, o alerta é exibido e o fluxo de 
+    // cadastrar livro é interrompido
+    if (!isNaN(Number(autor))) {
+      alert("Autor não pode ser um número!");
+      return;
+    }
     if (autor === null || autor.trim() === '') {
       alert("Autor está inválido!");
       return;
@@ -52,14 +59,25 @@ export class LivroService {
       return;
     }
 
-    const novoLivro = new LivroModel(4, titulo, autor, Number(anoPublicacao))
+    const lista = localStorage.getItem('lista_livros');
+    if(lista) {
+      this.livros = JSON.parse(lista);
+    }
+    const novoId = this.livros.length + 1;
+
+    const novoLivro = new LivroModel(novoId, titulo, autor, Number(anoPublicacao))
 
     // Adicionar livro na lista
     this.livros.push(novoLivro);
+    
+    // setItem recebe chave (string) e valor (string)
+    localStorage.setItem("lista_livros", JSON.stringify(this.livros))
   }
 
   // Função para excluir livro
-  excluirLivro() {
-    
+  excluirLivro(livroId: number) {
+    // Retorna uma lista filtrada, com apenas os livros com Id diferente do recebido
+    this.livros = this.livros.filter(livro => livro.id !== livroId);
+    localStorage.setItem("lista_livros", JSON.stringify(this.livros));
   }
 }

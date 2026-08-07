@@ -6,10 +6,11 @@
 
   @if (mostrarBotoes) {
     <div class="livro-acoes">
+      <button [routerLink]="['/livros', livro.id]">Ver detalhes</button>
       <button (click)="alterarTitulo()">Alterar título</button>
       <button (click)="alterarAutor()">Alterar autor</button>
       <button (click)="alterarAnoPublicacao()">Alterar ano</button>
-      <button [routerLink]="['/livros', livro.id]">Ver detalhes</button>
+      <button (click)="excluirLivro(livro.id)">Excluir</button>
     </div>
   }
 </div>
